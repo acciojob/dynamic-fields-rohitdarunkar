@@ -33,6 +33,7 @@ const App = () => {
         {fields.map((field, index) => (
           <div key={index}>
             <input
+              type="text"
               name="name"
               placeholder="Name"
               value={field.name}
@@ -40,20 +41,23 @@ const App = () => {
             />
 
             <input
+              type="number"
               name="age"
               placeholder="Age"
               value={field.age}
               onChange={(e) => handleChange(index, e)}
             />
 
-            <button type="button" onClick={() => removeField(index)}>
-              Remove
-            </button>
+            {fields.length > 1 && (
+              <button type="button" onClick={() => removeField(index)}>
+                Remove
+              </button>
+            )}
           </div>
         ))}
 
         <button type="button" onClick={addField}>
-          Add More
+          Add More..
         </button>
 
         <button type="submit">Submit</button>
